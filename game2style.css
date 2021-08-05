@@ -55,17 +55,21 @@ body {
 }
 
 .results {
-    display: grid;
     justify-content: center;
     font-size: 64px;
     font-family:sans-serif;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
-    align-items: center;
+
 }
 
 .result-score {
     font-size: 40px; ;
+
+}
+
+.result-selection {
+  opacity: 1;  
 
 }
 
@@ -83,7 +87,7 @@ body {
 }
 
 .select:hover {
-    box-shadow:  0 0 10px 100px #CAE5F6 inset;
+    box-shadow:  0 0 5px 50px #CAE5F6 inset;
     transform: scale(1.2);
     transition: 120ms;
 }
@@ -93,24 +97,21 @@ body {
 }
 
 .challenge{
-    position: absolute;
+    position: relative;
     left:50%;
     transform: translateX(-50%);
     width: 540px;
     height:40%;
-    display:inline-flex;
+    display:flex;
     justify-content:center;
+    font-size: 72px ;
 
 }
-
-#you{
-   width: 37.5%;
-   font-size: 50px;
-   position:relative;
-
+.result-selection {
+    opacity: 0.5;
+    margin: 1cm;
 }
-#com{
-    width: 37.5%;
-    font-size: 50px;
-    position:relative;
+.result-selection.winner {
+    opacity: 1;
+    margin: 1cm;
 }

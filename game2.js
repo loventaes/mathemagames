@@ -1,39 +1,71 @@
 // Alert for game
 
-    // alert("The battle is about to begin!");
-    // var confidenceLevel = confirm("Are you sure you are prepared to lose?");
+// alert("The battle is about to begin!");
+// var confidenceLevel = confirm("Are you sure you are prepared to lose?");
   
-var choices = ["paper", "rock", "scissors"];
-var i = Math.floor(Math.random() * 3);
-var ComputerChoice = choices[i];
-var UserPoints = 0;
-var ComputerPoints = 0;
-function score(){
-    var score_div = document.getElementById("score").innerHTML = UserPoints + " - " + ComputerPoints;
-
-}
-setInterval(score, 50);
+//
 
 // User selection in order to select rock paper or scissors (SCRAPPED)
 const selectionButtons = document.querySelectorAll('[data-selection]')
+const finalColumn = document.querySelector('[data-final-column]')
+const SELECTIONS = [ 
+    {
+        name: "rock",
+        emoji: "👊",
+        beats: "scissors",
+    },
+
+    {
+        name: "paper",
+        emoji: "✋",
+        beats: "rock",
+    },
+
+    {
+        name: "scissors",
+        emoji: "✌️",
+        beats: "paper",
+    },
+
+]
 
 selectionButtons.forEach(selectionButton => {
     selectionButton.addEventListener('click', e => {
         const selectionName = selectionButton.dataset.selection
-        makeSelection(selectionName)
+        const selection = SELECTIONS.find(selection => selection.name === selectionName)
+        makeSelection(selection)
         })
     })
 
     function makeSelection(selection) {
-        console.log(selection)
+        const computerSelection = randomSelection()
+        const yourWinner = isWinner(selection, computerSelection)
+        const computerWinner = isWinner (computerSelection, selection)
+        
+        addSelectionResult(computerSelection, computerWinner)
+        addSelectionResult(selection, yourWinner)
     }
 
-// Computer random value (opponent)
+function addSelectionResult(selection, winner) {
+    const div = document.createElement('div')
+    div.innerText = selection.emoji
+    div.classList.add('result-selection')
+    if (winner) div.classList.add('winner')
+    finalColumn.after(div)
 
+}
+
+// Computer random value (opponent)
+function randomSelection() {
+   const randomIndex = Math.floor(Math.random() * SELECTIONS.length)
+   return SELECTIONS[randomIndex]
+}
 
 
 //Outcome, basically how the score adds up and when do u win?// conditional if statement
-
+function isWinner(selection, opponentSelection) {
+    return selection.beats === opponentSelection.name
+}
 
 
 //if time a replay button
