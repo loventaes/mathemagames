@@ -1,9 +1,10 @@
 // Original: https://stackoverflow.com/questions/347734/gauss-legendre-algorithm-in-python
 
 // To-do list:
-// Make the progress bar work
-// Make the "go" and "stop" buttons equal sizes
+// Make the progress bar work (likely requires a complete rework of the main loop)
 // Make the highlight digit feature work
+// Make the stop button work (might also be hard)
+// Make the "go" and "stop" buttons equal sizes
 
 // These cryptic names are apparently what's normally used.
 var a;
@@ -34,6 +35,12 @@ function countMatchingChars(str1, str2) {
         }
     }
     return count;
+}
+
+// Possible progress bar fix
+function forceUpdate(elem) {
+    /* elem.height(elem.height() + 1);
+    elem.height(elem.height() - 1); */
 }
 
 // Function to bypass the interface and force
@@ -87,9 +94,12 @@ function generatePi(precision) {
         // console.log(progressDigits);
         // Show progress
         // NOTE: Progress is not showing until the very end
+        // setProgress(i * 10);
         setProgress(progressPercent);
         $("#progress-text").text(progressString);
         console.log(progressString);
+        // Update progress/action section
+        // forceUpdate($("progress-action"));
 
         if (pi.eq(piOld)) { // Check if the difference made is negligible
             success = true;
