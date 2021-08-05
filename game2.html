@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="game2style.css">
+    <script src="game2.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- navbar parts -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Pi Calculator <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Rock Paper Scissors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Suprise</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+<br> <br>
+
+<div class="score-container">
+  <span class="user">You</span>
+  <span id="score">0 - 0</span>
+  <span class="com">Opponent</span>
+
+
+</div>
+
+      <!-- rock paper scissors buttons -->
+
+<div id="container" bis_skin_checked="1">
+
+  <div class="selects">
+    <button class="select" data-selection="rock" value="rock">👊</button>
+    <button class="select" data-selection="paper">✋</button>
+   <button class="select" data-selection="scissors">✌️</button>
+  </div> 
+
+  <div class="challenge">
+    <div id="you">
+      <div id="YourObject"><button class="select" onclick="" value=""><i class="far fa-hand-rock"></i>👊</button></i></div>
+    </div>
+    <div id="result"><p>You won</p></div>
+    <div id="com">
+       <div id="ComObject"><button class="select" onclick="" value=""><i class="far fa-hand-paper"></i>✋</button></div>
+    </div>
+  </div> 
+</div>  
+    
+
+
+  <!-- scores and results -->
+<!-- <div class="results">
+
+  <div>
+      <h3>You</h3>
+      <span class="result-score">0</span>
+  </div>
+  <div>
+      <h3>Opponent</h3>
+      <span class="result-score">0</span>
+  </div>
+
+
+</div> -->
+
+
+
+<br><br>
+    
+  
+
+
+
+</body>
+</html>
