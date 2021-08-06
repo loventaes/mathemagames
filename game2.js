@@ -1,7 +1,6 @@
 // Alert for game
-
-// alert("The battle is about to begin!");
-// var confidenceLevel = confirm("Are you sure you are prepared to lose?");
+ alert("The battle is about to begin!");
+ var confidenceLevel = confirm("Are you sure you are prepared to lose?");
   
 //
 
