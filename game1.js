@@ -17,6 +17,7 @@ var pi;
 var piOld;
 
 var success;
+var piString;
 
 var progressBar = $("#main-progress");
 
@@ -116,7 +117,7 @@ function generatePi(precision) {
         $("#progress-text").text("Error!");
     } else { // Transfer everything to the HTML page
         console.log("Preparing string value...");
-        var piString = pi.toString();
+        piString = pi.toString();
         piString = piString.slice(0, precision + 2); // Remove the last few possibly incorrect digits
         console.log("Writing to HTML...");
         $("#pi-output").text(piString);
@@ -131,11 +132,37 @@ function generatePi(precision) {
 $("#button-go").on("click", function () {
     // Get value from input section
     var wantedDigits = parseInt($("#pi-digits-wanted").val());
-    console.log(wantedDigits)
+    // console.log(wantedDigits)
     // Check for a "falsy" value
     if (!wantedDigits || wantedDigits < 0) {
         alert("Invalid number of digits!")
     } else {
         generatePi(wantedDigits)
+    }
+})
+
+$("#button-hl").on("click", function () {
+    // Get value from input section
+    var hlDigit = parseInt($("#hl-digit").val());
+    // console.log(hlDigit)
+    // Check for a "falsy" value
+    if (!hlDigit || hlDigit < 0) {
+        alert("Invalid number of digits!")
+    } else if (!piString) {
+        alert("Pi not calculated!")
+    } else {
+        // Remove 1 to make it zero based
+        hlDigit -= 1;
+        // Start by erasing everything inside the output
+        $("#pi-output").empty();
+        // Add the digits before the highlight
+        $("#pi-output").append(piString.substring(0, hlDigit));
+        // Add a span with class "highlight" to indicate highlighting
+        var newSpan = $("<span>");
+        newSpan.text(piString.substring(hlDigit, hlDigit + 1));
+        $("#pi-output").append(newSpan);
+        newSpan.attr("class", "highlight");
+        // Add the rest of the digits
+        $("#pi-output").append(piString.substring(hlDigit + 1));
     }
 })
